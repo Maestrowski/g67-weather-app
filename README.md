@@ -74,4 +74,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 npm install
 npm i react-accessible-accordion
 npm i react-select-async-paginate --force
-
+npm i axios
