@@ -1,0 +1,45 @@
+.temp-of-day-section {
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+  }
+  
+.temp-of-day-block {
+width: 95%;
+height: 10%;
+background: #d9d9d9;
+color: #000;
+font-family: Inter;
+font-size: 1.5rem;
+font-weight: 300;
+padding-top: 1%;
+padding-left: 1%;
+}
+
+.weather-details-time {
+display: flex;
+justify-content: space-evenly;
+}
+
+.time {
+width: 2.034rem;
+height: 1.6875rem;
+padding: 1%;
+color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.weather-details-icon {
+display: flex;
+justify-content: space-evenly;
+}
+
+.weather-details-temp {
+display: flex;
+justify-content: space-evenly;
+}

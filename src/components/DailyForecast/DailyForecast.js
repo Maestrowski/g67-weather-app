@@ -1,5 +1,5 @@
 import React from 'react'
-import {Accordion, AccordionItem, AccordionITemHeading, AccordionItemButton, AccordionItemPanel, AccordionItemHeading} from "react-accessible-accordion";
+import {Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton} from "react-accessible-accordion";
 import "./DailyForecast.css"
 
 const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -21,26 +21,6 @@ const DailyForecast = ({data}) => {
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
-            <AccordionItemPanel>
-            <div className="daily-details-grid">
-                <div className="daily-details-grid-item">
-                  <label>Pressure:</label>
-                  <label>{item.main.pressure}</label>
-                </div>
-                <div className="daily-details-grid-item">
-                  <label>Humidity:</label>
-                  <label>{item.main.humidity}</label>
-                </div>
-                <div className="daily-details-grid-item">
-                  <label>Clouds:</label>
-                  <label>{item.clouds.all}%</label>
-                </div>
-                <div className="daily-details-grid-item">
-                  <label>Wind speed:</label>
-                  <label>{item.wind.speed} m/s</label>
-                </div>
-              </div>
-            </AccordionItemPanel>
           </AccordionItem>
         ))}
       </Accordion>

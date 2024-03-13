@@ -1,0 +1,36 @@
+.top-black-bar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 16.9375rem;
+    background: #000;
+  }
+  
+  .greybar-in-blackbar {
+    margin: auto;
+    width: 23.5rem;
+    height: 9.4375rem;
+    background: #d9d9d9;
+  }
+  
+  .location-name {
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+  
+  .under-location-name {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .small-icons-under-name {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
