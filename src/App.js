@@ -1,8 +1,11 @@
-import './App.css';
 import { useState } from 'react';
-import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
-import DailyForecast from './components/DailyForecast/DailyForecast';
+import Header from './components/Header/Header';
+import DailyForecast from "./components/DailyForecast/DailyForecast";
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import HourForecast from "./components/HourForecast/HourForecast";
+import WeatherGraph from "./components/WeatherGraph/WeatherGraph";
+import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
+import './App.css';
 
 
 function App() {
@@ -32,11 +35,11 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
-      <HourForecast />
-      <DailyForecast />
-      <CurrentWeather />
-      <WeatherGraph />
+      {<Header />}
+      {<HourForecast />}
+      {forecast && <DailyForecast data={forecast}/>}
+      {currentWeather && <CurrentWeather data={currentWeather}/>}
+      {<WeatherGraph />}
     </div>
   );
 }
