@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import CurrentWeather from "./components/current-weather/current-weather";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
+import HourForecast from "./components/HourForecast/HourForecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import "./App.css";
 
@@ -33,8 +34,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-      {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <DailyForecast data={forecast} />}
+      <CurrentWeather/>
+      <HourForecast />
     </div>
   );
 }
