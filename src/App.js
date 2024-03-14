@@ -69,7 +69,7 @@ function App() {
       );
 
       const weatherResponse = await currentWeatherFetch.json();
-      console.log(weatherResponse);
+      console.log("Current weather: ", weatherResponse);
       
       setCurrentWeather(await weatherResponse);
       return weatherResponse;
