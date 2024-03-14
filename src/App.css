@@ -1,4 +1,5 @@
 .container {
+    all: unset;
     max-width: 1080px;
     margin: 20px auto;
 }
