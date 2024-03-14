@@ -1,0 +1,32 @@
+.info-block-bottum {
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+  }
+  
+.weekly-info-block-left {
+display: flex;
+justify-content: space-evenly;
+flex-direction: row;
+width: 20%;
+height: 30rem;
+background: #d9d9d9;
+}
+
+.each-column {
+display: flex;
+justify-content: space-evenly;
+flex-direction: column;
+}
+
+.column {
+color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+height: 3.75rem;
+padding-top: 10%;
+}

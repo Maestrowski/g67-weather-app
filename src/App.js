@@ -5,6 +5,7 @@ import DailyForecast from "./components/DailyForecast/DailyForecast";
 import HourForecast from "./components/HourForecast/HourForecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import "./App.css";
+import WeatherGraph from "./components/WeatherGraph/WeatherGraph";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -34,8 +35,10 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <CurrentWeather/>
       <HourForecast />
+      <DailyForecast />
+      <CurrentWeather/>
+      <WeatherGraph />
     </div>
   );
 }
