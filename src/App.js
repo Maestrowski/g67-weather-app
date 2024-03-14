@@ -38,7 +38,7 @@ function App() {
       // set state variable
       setCity(await cityCall);
 
-      //console.log("Current city: " +await cityCall);
+      console.log("Current city: " +await cityCall);
 
       return cityCall;
     }
@@ -50,7 +50,7 @@ function App() {
       const localResponse = await weatherResponse.name;
       setLocalArea(await localResponse);
       
-      //console.log("Current location: " +await localResponse);
+      console.log("Current location: " +await localResponse);
 
       return localResponse;
     }
@@ -90,7 +90,7 @@ function App() {
       );
 
       const forecastResponse = await forecastFetch.json();
-      //console.log("Forecast data: ", forecastResponse);
+      console.log("Forecast data: ", forecastResponse);
 
       setForecast(await forecastResponse);
       return forecastResponse;
