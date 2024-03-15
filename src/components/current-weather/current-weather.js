@@ -10,8 +10,8 @@ const CurrentWeather = () => {
                 <img src={`icons/uv.png`}/>
               </div>
             <div className='uv-index-info'>
-                <span className='parameter-label'>UV-Index</span>
-                <span className='parameter-value'>Low</span>
+                <p className='parameter-label'>UV-Index</p>
+                <p className='parameter-value'>Low</p>
             </div>
           </div>
           <div className="single-block-info">
@@ -19,8 +19,8 @@ const CurrentWeather = () => {
                 <img src={`icons/humidity.png`}/>
               </div>
             <div className='humidity-info'>
-                <span className='parameter-label'>Humidity</span>
-                <span className='parameter-value'> 84%</span>
+                <p className='parameter-label'>Humidity</p>
+                <p className='parameter-value'> 84%</p>
             </div>
           </div>
           <div className="single-block-info">
@@ -28,8 +28,8 @@ const CurrentWeather = () => {
                 <img src={`icons/wind.png`} />
               </div>
             <div className='wind-info'>
-                <span className='parameter-label'>Wind</span>
-                <span className='parameter-value'>11km/h</span>
+                <p className='parameter-label'>Wind</p>
+                <p className='parameter-value'>11km/h</p>
             </div>
           </div>
           <div className="single-block-info">
@@ -37,8 +37,8 @@ const CurrentWeather = () => {
                 <img src={`icons/clouds.png`}/>
             </div>
             <div className='clouds-info'>
-                <span className='parameter-label'>Clouds</span>
-                <span className='parameter-value'>90%</span>
+                <p className='parameter-label'>Clouds</p>
+                <p className='parameter-value'>90%</p>
             </div>
           </div>
       </div>
