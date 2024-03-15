@@ -34,10 +34,10 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
+      <Header onSearchChange={handleOnSearchChange} />
       <HourForecast />
       <DailyForecast />
-      <CurrentWeather/>
+      <CurrentWeather />
       <WeatherGraph />
     </div>
   );
