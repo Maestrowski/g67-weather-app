@@ -22,10 +22,57 @@ const HourForecast = () => {
             <div class="time">12</div>
           </div>
           <div class="weather-details-icon">
-            <div className=''>{/*icons here*/}</div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
           </div>
           <div class="weather-details-temp">
-            {/*Temperatures here*/}
+          <div class="temp">5°C</div>
+            <div class="temp">5°C</div> 
+            <div class="temp">4°C</div>
+            <div class="temp">4°C</div>
+            <div class="temp">3°C</div>
+            <div class="temp">3°C</div>
+            <div class="temp">3°C</div>
+            <div class="temp">2°C</div>
+            <div class="temp">2°C</div>
+            <div class="temp">3°C</div>
+            <div class="temp">4°C</div>
+            <div class="temp">5°C</div>
+            <div class="temp">5°C</div>
           </div>
         </div>
       </div>

@@ -1,26 +1,56 @@
 .icon-info-middle {
+    position: relative;
+    bottom: 460px;
+    left: 600px;
     margin-left: 1%;
-    width: 54%;
-    height: 30rem;
+    width: 30%;
+    height: 100%;
     background: #d9d9d9;
   }
   
-  .four-block-info {
-    margin: 2%;
-    width: 47.5%;
-    height: 90%;
-    display: grid;
-    grid-template-columns: 100% 100%;
-    grid-row: auto auto;
-    grid-column-gap: 2%;
-    grid-row-gap: 2%;
-  }
+.four-block-info {
+  margin: 2%;
+  width: 60%;
+  height: 27rem;
+  display: grid;
+  grid-template-columns: 100% 100%;
+  grid-row: auto auto;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+}
 
-  .single-block-info {
-    background-color: #7ec6e3;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-  }
+.single-block-info {
+  height: 150%;
+  width: 40%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.current-icon {
+  width: 2%;
+  height: 90%;
+  flex-shrink: 0;
+}
+
+.parameter-label {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.parameter-value {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;  
+}

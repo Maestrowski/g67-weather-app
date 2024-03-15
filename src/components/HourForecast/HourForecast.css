@@ -35,8 +35,12 @@ line-height: normal;
 }
 
 .weather-details-icon {
-display: flex;
-justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icon {
+  width: 5.5%;
 }
 
 .weather-details-temp {

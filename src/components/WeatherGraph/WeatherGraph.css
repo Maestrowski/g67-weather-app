@@ -1,7 +1,9 @@
 .map-info-right {
-    margin-left: 1%;
-    width: 20%;
-    height: 30rem;
+    position: relative;
+    bottom: 900px;
+    left: 1350px;
+    width: 0%;
+    height: 0%;
     background: #d9d9d9;
   }
   

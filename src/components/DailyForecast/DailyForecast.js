@@ -11,7 +11,6 @@ const DailyForecast = () => {
         <div className="weekly-info-block-left">
           <div className="each-column">
             <div class="column">Today</div>
-            <div class="column">Monday</div>
             <div class="column">Tuesday</div>
             <div class="column">Wednesday</div>
             <div class="column">Thursday</div>
@@ -21,7 +20,6 @@ const DailyForecast = () => {
           </div>
           <div class="each-column">
             <div class="column">4°C</div>
-            <div class="column">5°C</div>
             <div class="column">5°C</div>
             <div class="column">3°C</div>
             <div class="column">6°C</div>

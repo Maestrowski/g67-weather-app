@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="top-black-bar">
         <div className="greybar-in-blackbar">
-          <div className="location-name">Will it change after commit</div>
+          <div className="location-name">London</div>
           <div className="under-location-name">
             <div className= "temp-under-location">5°C</div>
             <div className="small-icons-under-name">{/*Image(url)*/}</div>

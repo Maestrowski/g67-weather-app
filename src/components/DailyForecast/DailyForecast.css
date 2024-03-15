@@ -1,4 +1,7 @@
 .info-block-bottum {
+    position: relative;
+    top: 30px;
+    right: 750px;
     display: flex;
     justify-content: center;
     padding-top: 1%;
