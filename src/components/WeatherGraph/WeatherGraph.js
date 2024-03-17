@@ -1,14 +1,28 @@
-import React from 'react'
+import React from "react";
 import "./WeatherGraph.css";
 
-const WeatherGraph = () => {
-  return (
-    <div className='map-info-right'>
-      <div className='map-image'>
-        <img src={`icons/mapdemo.png`}/>
-      </div>
-    </div>
-  )
-}
+const WeatherGraph = ({ lat, lon, apiKey }) => {
+  const layer = "temp_new"; // Change this to the desired weather layer
+  const zoom = 10; // Adjust the zoom level as needed
 
-export default WeatherGraph
+  // Calculate tile coordinates based on latitude and longitude
+  const tileX = Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
+  const tileY = Math.floor((1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, zoom));
+  console.log(tileX);
+  console.log(tileY);
+
+  // Replace {layer}, {z}, {x}, {y}, and {API key} with actual values
+  const tileUrl = `https://tile.openweathermap.org/map/${layer}/${zoom}/${tileX}/${tileY}.png?appid=${apiKey}`;
+
+  console.log(tileUrl)
+
+  return (
+    <div className="weather-graph-container">
+      <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
+    </div>
+  );
+};
+
+export default WeatherGraph;
+
+

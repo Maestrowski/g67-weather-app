@@ -9,7 +9,7 @@ const CurrentWeather = ({data}) => {
               <div className='current-icon'> 
                 <img src={`icons/uv.png`}/>
               </div>
-            <div className='uv-index-info'>
+            <div className='pressure-info'>
                 <span className='parameter-label'>UV-Index</span>
                 <span className='parameter-value'>N/A</span>
             </div>
@@ -51,11 +51,11 @@ const CurrentWeather = ({data}) => {
     <div className='four-block-info'>
         <div className="single-block-info">
             <div className='current-icon'> 
-              <img src={`icons/uv.png`}/>
+              <img src={`icons/pressure.png`}/>
             </div>
-          <div className='uv-index-info'>
+          <div className='pressure-info'>
               <span className='parameter-label'>Pressure</span>
-              <span className='parameter-value'>{data.main.pressure}hPa</span>
+              <span className='parameter-value'>{data.main.pressure}hPA </span>
           </div>
         </div>
         <div className="single-block-info">

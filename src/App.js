@@ -71,7 +71,10 @@ function App() {
       <HourForecast />
       {forecast && <DailyForecast data={forecast}/>}
       {currentWeather && <CurrentWeather data={currentWeather}/>}
-      <WeatherGraph />
+      {currentWeather && <WeatherGraph 
+      lat = {currentWeather.coord.lat}
+      lon = {currentWeather.coord.lon}
+      apiKey = {WEATHER_API_KEY}/>}
     </div>
   );
 }
