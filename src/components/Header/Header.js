@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Header.css";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { GEO_API_URL, geoApiOptions } from "../../api";
+import { GEO_API_URL, geoApiOptions } from "../api";
 
-const Header = ({ onSearchChange }) => {
+const Header = ({ onSearchChange, cityName, currentTemp, weatherIcon }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = (inputValue) => {
@@ -39,10 +39,12 @@ const Header = ({ onSearchChange }) => {
           onChange={handleOnChange}
           loadOptions={loadOptions}
         />
-        <div className="location-name">London</div>
+        <div className="location-name">{cityName}</div>
         <div className="under-location-name">
-          <div className="temp-under-location">5°C</div>
-          <div className="small-icons-under-name">{/*Image(url)*/}</div>
+          <div className="temp-under-location">{Math.round(currentTemp)}°C</div>
+          <div className="small-icons-under-name">
+            <img src={weatherIcon} alt="Weather Icon" />
+          </div>
         </div>
       </div>
     </div>

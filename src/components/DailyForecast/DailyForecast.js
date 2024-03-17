@@ -10,22 +10,22 @@ const DailyForecast = () => {
       <div className="info-block-bottum">
         <div className="weekly-info-block-left">
           <div className="each-column">
-            <div class="column">Today</div>
-            <div class="column">Tuesday</div>
-            <div class="column">Wednesday</div>
-            <div class="column">Thursday</div>
-            <div class="column">Friday</div>
-            <div class="column">Saturday</div>
-            <div class="column">Sunday</div>
+            <div className="column">Today</div>
+            <div className="column">Tuesday</div>
+            <div className="column">Wednesday</div>
+            <div className="column">Thursday</div>
+            <div className="column">Friday</div>
+            <div className="column">Saturday</div>
+            <div className="column">Sunday</div>
           </div>
-          <div class="each-column">
-            <div class="column">4°C</div>
-            <div class="column">5°C</div>
-            <div class="column">3°C</div>
-            <div class="column">6°C</div>
-            <div class="column">6°C</div>
-            <div class="column">7°C</div>
-            <div class="column">7°C</div>
+          <div className="each-column">
+            <div className="column">4°C</div>
+            <div className="column">5°C</div>
+            <div className="column">3°C</div>
+            <div className="column">6°C</div>
+            <div className="column">6°C</div>
+            <div className="column">7°C</div>
+            <div className="column">7°C</div>
           </div>
         </div>
         </div>
