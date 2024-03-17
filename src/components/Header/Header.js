@@ -8,7 +8,7 @@ const Header = ({ onSearchChange, cityName, currentTemp, weatherIcon }) => {
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      `${GEO_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then((response) => response.json())
@@ -39,12 +39,12 @@ const Header = ({ onSearchChange, cityName, currentTemp, weatherIcon }) => {
           onChange={handleOnChange}
           loadOptions={loadOptions}
         />
-        <div className="location-name">{cityName}</div>
+        {cityName && <div className="location-name">{cityName}</div>}
         <div className="under-location-name">
-          <div className="temp-under-location">{Math.round(currentTemp)}°C</div>
-          <div className="small-icons-under-name">
+          {currentTemp && <div className="temp-under-location">{Math.round(currentTemp)}°C</div>}
+          {weatherIcon && <div className="small-icons-under-name">
             <img src={weatherIcon} alt="Weather Icon" />
-          </div>
+          </div>}
         </div>
       </div>
     </div>
