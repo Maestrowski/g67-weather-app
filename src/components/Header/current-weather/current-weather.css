@@ -36,7 +36,13 @@
   flex-shrink: 0;
 }
 
-.parameter-label {
+.pressure-info, .humidity-info, .wind-info, .clouds-info {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.parameter-label, .parameter-value {
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -46,12 +52,3 @@
   line-height: normal;
 }
 
-.parameter-value {
-  color: #000;
-  text-align: center;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;  
-}
