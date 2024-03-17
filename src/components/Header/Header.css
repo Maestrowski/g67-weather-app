@@ -34,3 +34,10 @@
     font-size: 1.5rem;
     font-weight: 300;
   }
+
+.temp-under-location {
+  font-weight: 600;
+  font-size: 24px;
+  font-family: 'Inter';
+  word-wrap: break-word;
+}
