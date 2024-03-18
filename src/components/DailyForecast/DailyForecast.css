@@ -1,20 +1,17 @@
 .info-block-bottum {
   position: relative;
-  top: 30px;
-  right: 750px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding-top: 1%;
+  width: 96%;
+  margin: 0 auto;
 }
 
 .weekly-info-block-left {
 display: flex;
-top: 50%;
-right: 1;
 justify-content: space-evenly;
-flex-direction: row;
-width: 20%;
-height: 2%;
+flex-direction: wrap;
+width: 30%;
 background: #d9d9d9;
 }
 
@@ -22,6 +19,9 @@ background: #d9d9d9;
 display: flex;
 justify-content: space-evenly;
 flex-direction: column;
+flex: 1;
+padding: 10px;
+height: 300px;
 }
 
 .column {
@@ -32,8 +32,7 @@ font-size: 1.5rem;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-height: 3.75rem;
-padding-top: 10%;
+height: auto;
 }
 
 .forecast-item {
