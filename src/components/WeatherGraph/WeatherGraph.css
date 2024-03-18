@@ -1,11 +1,6 @@
 .weather-graph-container {
-  position: fixed;
-  bottom: 20px; /* Adjust as needed */
-  right: 80px; /* Adjust as needed */
-  z-index: 100; /* Ensure it appears on top of other content */
+    float: right;
+    margin: 20px;
 }
 
-.weather-graph-img {
-  width: 500px; /* Adjust the width as needed */
-  height: 400px; /* Maintain aspect ratio */
-}
+  
