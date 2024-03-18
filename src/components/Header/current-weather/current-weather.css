@@ -1,0 +1,54 @@
+.icon-info-middle {
+    position: relative;
+    bottom: 460px;
+    left: 600px;
+    margin-left: 1%;
+    width: 30%;
+    height: 100%;
+    background: #d9d9d9;
+  }
+  
+.four-block-info {
+  margin: 2%;
+  width: 60%;
+  height: 27rem;
+  display: grid;
+  grid-template-columns: 100% 100%;
+  grid-row: auto auto;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+}
+
+.single-block-info {
+  margin: 20px solid;
+  height: 150%;
+  width: 40%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.current-icon {
+  width: 2%;
+  height: 90%;
+  flex-shrink: 0;
+}
+
+.pressure-info, .humidity-info, .wind-info, .clouds-info {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.parameter-label, .parameter-value {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+

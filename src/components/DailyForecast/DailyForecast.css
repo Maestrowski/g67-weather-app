@@ -1,15 +1,20 @@
 .info-block-bottum {
-    display: flex;
-    justify-content: center;
-    padding-top: 1%;
-  }
-  
+  position: relative;
+  top: 30px;
+  right: 750px;
+  display: flex;
+  justify-content: center;
+  padding-top: 1%;
+}
+
 .weekly-info-block-left {
 display: flex;
+top: 50%;
+right: 1;
 justify-content: space-evenly;
 flex-direction: row;
 width: 20%;
-height: 30rem;
+height: 2%;
 background: #d9d9d9;
 }
 
@@ -29,4 +34,27 @@ font-weight: 400;
 line-height: normal;
 height: 3.75rem;
 padding-top: 10%;
+}
+
+.forecast-item {
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 30px; 
+  height: 30px; 
+  margin-left: auto; 
+}
+
+.day {
+  font-size: 24px;
+  margin-right: 10px; 
+}
+
+.temperature {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: auto;
+  margin-left: auto;
 }

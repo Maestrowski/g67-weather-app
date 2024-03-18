@@ -3,29 +3,76 @@ import "./HourForecast.css";
 
 const HourForecast = () => {
   return (
-    <div class="temp-of-day-section">
-        <div class="temp-of-day-block">
+    <div className="temp-of-day-section">
+        <div className="temp-of-day-block">
           Temperature for the day
-          <div class="weather-details-time">
-            <div class="time">Now</div>
-            <div class="time">01</div>
-            <div class="time">02</div>
-            <div class="time">03</div>
-            <div class="time">04</div>
-            <div class="time">05</div>
-            <div class="time">06</div>
-            <div class="time">07</div>
-            <div class="time">08</div>
-            <div class="time">09</div>
-            <div class="time">10</div>
-            <div class="time">11</div>
-            <div class="time">12</div>
+          <div className="weather-details-time">
+            <div className="time">Now</div>
+            <div className="time">01</div>
+            <div className="time">02</div>
+            <div className="time">03</div>
+            <div className="time">04</div>
+            <div className="time">05</div>
+            <div className="time">06</div>
+            <div className="time">07</div>
+            <div className="time">08</div>
+            <div className="time">09</div>
+            <div className="time">10</div>
+            <div className="time">11</div>
+            <div className="time">12</div>
           </div>
-          <div class="weather-details-icon">
-            <div className=''>{/*icons here*/}</div>
+          <div className="weather-details-icon">
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
+            <div className="icon">
+              <img src={`icons/01d.png`} />
+            </div>
           </div>
-          <div class="weather-details-temp">
-            {/*Temperatures here*/}
+          <div className="weather-details-temp">
+          <div className="temp">5°C</div>
+            <div className="temp">5°C</div> 
+            <div className="temp">4°C</div>
+            <div className="temp">4°C</div>
+            <div className="temp">3°C</div>
+            <div className="temp">3°C</div>
+            <div className="temp">3°C</div>
+            <div className="temp">2°C</div>
+            <div className="temp">2°C</div>
+            <div className="temp">3°C</div>
+            <div className="temp">4°C</div>
+            <div className="temp">5°C</div>
+            <div className="temp">5°C</div>
           </div>
         </div>
       </div>
