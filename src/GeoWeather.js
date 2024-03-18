@@ -150,15 +150,14 @@ class GeoWeather extends React.Component {
     }
     else {
       // placeholder if data hasn't been received yet
-      return (
-        <div>{errorMessage == null ? "Loading..." : errorMessage}</div>
-      )
+      // return (
+      //   <div>{errorMessage == null ? "Loading..." : errorMessage}</div>
+      // )
     }    
   }
 }
 
 export default GeoWeather
-
   //   export const 
 
   // // export async function getPosition() {
