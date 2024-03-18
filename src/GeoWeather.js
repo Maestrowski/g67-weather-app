@@ -153,7 +153,9 @@ class GeoWeather extends React.Component {
       // return (
       //   <div>{errorMessage == null ? "Loading..." : errorMessage}</div>
       // )
-    }    
+
+      return(<></>)
+    } 
   }
 }
 
