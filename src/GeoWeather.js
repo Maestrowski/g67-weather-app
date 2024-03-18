@@ -1,5 +1,5 @@
 import React from 'react';
-import { WEATHER_API_URL, GEO_API_URL, WEATHER_API_KEY } from "./api";
+import { WEATHER_API_URL, R_GEO_API_URL, WEATHER_API_KEY } from "./api";
 
 
 
@@ -52,7 +52,7 @@ class GeoWeather extends React.Component {
 
   getAreaFromAPI = async (lat,lon) => {
     const rGeocodingAPIcall = await fetch(
-      `${GEO_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${WEATHER_API_KEY}`
+      `${R_GEO_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${WEATHER_API_KEY}`
     );
     const geoData = await rGeocodingAPIcall[0].json();
 
