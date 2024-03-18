@@ -87,13 +87,10 @@ class GeoWeather extends React.Component {
     function updateAllImagesOfClass(className, imgPath) {
       const elements = document.getElementsByClassName(className);
   
-      for (const element of elements) { element.src = imgPath; }
+      for (const element of elements) { element.src = imgPath; }functu
     };
 
-    const iconPath = "icons/";
-
-    const { lat, lon, area, weatherData, forecastData } = this.state;
-    if (area && weatherData && forecastData) {
+    function updateAllElements() {
       const dayTemp = Math.round(weatherData.main.temp);
       const icon = iconPath +weatherData.weather[0].icon+ ".png";
 
@@ -101,6 +98,12 @@ class GeoWeather extends React.Component {
       updateAllElementsOfClass("location-name",area);
       updateAllElementsOfClass("temp-under-location",dayTemp+"&deg;C");
       updateAllImagesOfClass("current-weather-icon", icon);
+    }
+
+    const iconPath = "icons/";
+
+    const { lat, lon, area, weatherData, forecastData } = this.state;
+    if (area && weatherData && forecastData) {
 
       const forecastTempElement = "forecast-temp";
       for (var i = 0; i < 8; i++) {
