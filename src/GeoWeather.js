@@ -52,7 +52,7 @@ class GeoWeather extends React.Component {
 
     this.setState({forecastData: forecastData})
 
-    // console.log("Forecast data: ", forecastData);
+    console.log("Forecast data: ", forecastData);
   }
 
   getAreaFromAPI = async (lat,lon) => {

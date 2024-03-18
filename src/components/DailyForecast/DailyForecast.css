@@ -46,7 +46,7 @@ height: auto;
   margin-left: auto; 
 }
 
-.day {
+.day, .current-day {
   font-size: 24px;
   margin-right: 10px; 
 }

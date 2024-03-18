@@ -27,7 +27,7 @@
     justify-content: space-evenly;
   }
   
-  .small-icons-under-name img{
+  #small-icons-under-name img{
     width: 50px;
     height: 50px;
     box-sizing: border-box;
@@ -36,7 +36,7 @@
     align-items: center;
   }
 
-.temp-under-location {
+#temp-under-location {
   margin-right: 5px;
   font-weight: 600px;
   font-size: 24px;

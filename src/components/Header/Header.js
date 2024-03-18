@@ -46,8 +46,8 @@ const Header = ({ onSearchChange, cityName, currentTemp, weatherIcon }) => {
         />
         {cityName && <div className="location-name">{cityName}</div>} {/**Display city name in the header*/}
         <div className="under-location-name">
-          {currentTemp && <div className="temp-under-location">{Math.round(currentTemp)}°C</div>} {/**Display the current temperature in the header*/}
-          {weatherIcon && <div className="small-icons-under-name"> {/**Display the appropriate weather icon in the header */}
+          {currentTemp && <div id="temp-under-location" className="temp">{Math.round(currentTemp)}°C</div>} {/**Display the current temperature in the header*/}
+          {weatherIcon && <div id="small-icons-under-name" className="weather-icon"> {/**Display the appropriate weather icon in the header */}
             <img src={weatherIcon} alt="Weather Icon" />
           </div>}
         </div>

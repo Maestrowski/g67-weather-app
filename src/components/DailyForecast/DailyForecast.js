@@ -23,8 +23,8 @@ const forecastDays = WEEK_DAYS.slice(todayIndex).concat(WEEK_DAYS.slice(0, today
             return (
               <div className="column" key={day}> 
                 <div className="forecast-item">
-                  <div className="day">{day}</div> {/**Display the day */}
-                  <div className="temperature">{temperature ? `${temperature}°C` : '-'}</div> {/**Display the weather */}
+                  <div className="current-day">{day}</div> {/**Display the day */}
+                  <div className="temp">{temperature ? `${temperature}°C` : '-'}</div> {/**Display the weather */}
                   {icon && <img className="weather-icon" src={icon} alt="Weather Icon" />} {/**Display the appropriate icon */}
                 </div>
               </div>

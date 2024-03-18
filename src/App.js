@@ -84,6 +84,7 @@ function App() {
       lat = {currentWeather.coord.lat}
       lon = {currentWeather.coord.lon}
       apiKey = {WEATHER_API_KEY}/>}
+      <GeoWeather/>
     </div>
   );
 }
