@@ -14,9 +14,3 @@
 
 After following these steps, the weather app will start up on a browser
 
-### Install dependencies
-
-npm install
-npm i react-accessible-accordion
-npm i react-select-async-paginate --force
-npm i axios
