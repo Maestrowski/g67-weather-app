@@ -6,8 +6,6 @@ const DailyForecast = ({ data }) => {
   const todayIndex = new Date().getDay();
   const forecastDays = WEEK_DAYS.slice(todayIndex).concat(WEEK_DAYS.slice(0, todayIndex));
 
-  console.log(forecastDays);
-  console.log(dayInAWeek);
   return (
     <div className="info-block-bottum">
       <div className="weekly-info-block-left">

@@ -1,7 +1,12 @@
 import React from 'react';
-import { WEATHER_API_URL, R_GEO_API_URL, WEATHER_API_KEY } from "./api";
+import { WEATHER_API_URL, R_GEO_API_URL, WEATHER_API_KEY } from "./components/api";
 
 
+// const getPosition = () => {
+//   return new Promise(function(succ, err) {
+//     navigator.geolocation.getCurrentPosition(succ, err);
+//   });
+// }
 
 class GeoWeather extends React.Component {
   state = {
@@ -41,13 +46,13 @@ class GeoWeather extends React.Component {
 
   getForecastFromAPI = async (lat,lon) => {
     const forecastAPIcall = await fetch(
-      `${WEATHER_API_URL}/forecast?lat=${await lat}&lon=${await lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
     const forecastData = await forecastAPIcall.json();
 
     this.setState({forecastData: forecastData})
 
-    console.log("Forecast data: ", forecastData);
+    // console.log("Forecast data: ", forecastData);
   }
 
   getAreaFromAPI = async (lat,lon) => {
@@ -56,7 +61,7 @@ class GeoWeather extends React.Component {
     );
     const geoData = await rGeocodingAPIcall[0].json();
 
-    console.log("Area: ", geoData.name);
+    // console.log("Area: ", geoData.name);
   }
 
   componentDidMount() {
@@ -87,13 +92,10 @@ class GeoWeather extends React.Component {
     function updateAllImagesOfClass(className, imgPath) {
       const elements = document.getElementsByClassName(className);
   
-      for (const element of elements) { element.src = imgPath; }functu
+      for (const element of elements) { element.src = imgPath; }
     };
 
-    function updateAllElements() {
-      const dayTemp = Math.round(weatherData.main.temp);
-      const icon = iconPath +weatherData.weather[0].icon+ ".png";
-
+    function updateAllElements(area, dayTemp, icon) {
       console.log(document.getElementsByClassName("location-name"));
       updateAllElementsOfClass("location-name",area);
       updateAllElementsOfClass("temp-under-location",dayTemp+"&deg;C");
@@ -105,10 +107,13 @@ class GeoWeather extends React.Component {
     const { lat, lon, area, weatherData, forecastData } = this.state;
     if (area && weatherData && forecastData) {
 
+      const dayTemp = Math.round(weatherData.main.temp);
+      const icon = iconPath +weatherData.weather[0].icon+ ".png";
+    
       const forecastTempElement = "forecast-temp";
       for (var i = 0; i < 8; i++) {
         //document.getElementById(forecastTempElement + i).innerHTML = 
-        console.log(Math.round(forecastData.list[i].main.temp));
+        // console.log(Math.round(forecastData.list[i].main.temp));
       }
 
       return (
