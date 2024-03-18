@@ -7,6 +7,8 @@
   }
   
   .greybar-in-blackbar {
+    display: flex;
+    flex-direction: column;
     margin: auto;
     width: 23.5rem;
     height: 9.4375rem;
@@ -42,4 +44,11 @@
   font-size: 24px;
   font-family: 'Inter';
   word-wrap: break-word;
+}
+
+.use-location-button {
+  width: 100%;
+  margin-top: 10px;
+  
+  align-content: flex-end;
 }

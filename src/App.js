@@ -16,6 +16,64 @@ function App() {
   const [cityName, setCityName] = useState("");
   const [currentTemp, setCurrentTemp] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
+  const [gLat,setGLat] = useState(null);
+  const [gLon,setGLon] = useState(null);
+
+  const handleOnUseLocation = () => {
+    var [lat, lon] = [null,null];
+    if (document.getElementById("geoLat").innerHTML != "" && document.getElementById("geoLon").innerHTML != "") {
+      [lat, lon] = [document.getElementById("geoLat").innerHTML,document.getElementById("geoLon").innerHTML];
+
+      console.log(lat,lon);
+
+      const currentWeatherFetch = fetch(
+        `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      );
+      const forecastFetch = fetch(
+        `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      );
+
+      Promise.all([currentWeatherFetch, forecastFetch])
+        .then(async (response) => {
+          const weatherResponse = await response[0].json();
+          const forecastResponse = await response[1].json();
+
+          {/**Grab the required data for the header and current weather section */}
+
+          setCurrentWeather({ city: weatherResponse.name, ...weatherResponse }); {/**Get City data */}
+          setCityName(weatherResponse.name);
+          setCurrentTemp(weatherResponse.main.temp);  {/**Get temperature which will be displayed in the header */}
+          setWeatherIcon(`icons/${weatherResponse.weather[0].icon}.png`); {/** Get the appropriate weather icon */}
+          setForecast({ city: weatherResponse.name, ...forecastResponse }); 
+
+          {/** Setup the weather forecast for 7 days */}
+
+          const dailyData = []; {/** Create an array of the weather forecast for each day */}
+          const dailyTemperatures = {};
+          forecastResponse.list.forEach((item) => {
+            const date = new Date(item.dt * 1000);
+            const day = date.getDay();  {/** Get the current day from the system */}
+            const temperature = Math.round(item.main.temp);
+            const icon = `icons/${item.weather[0].icon}.png`
+            if (!dailyTemperatures[day]) {
+              dailyTemperatures[day] = []; {/** Show nothing if there is no city selected */}
+            }
+            dailyTemperatures[day].push(temperature);
+            dailyData[day] = {temperature, icon};
+          });
+
+          const dailyTemperatureArray = Object.values(dailyTemperatures).map(dayTemperatures => {
+            const sum = dayTemperatures.reduce((acc, temp) => acc + temp, 0);
+            return Math.round(sum / dayTemperatures.length); {/** Calculate the average temperature for that day */}
+          });
+
+          setForecast({temperatures: dailyTemperatureArray, icons: dailyData}); {/**Display data to the console */}
+        })
+        .catch(console.log);
+      } else {
+        setCityName("Could not access location data");
+      }
+  };
 
   {/** fetch API Data from openWeatherAPI */}
 
@@ -74,9 +132,11 @@ function App() {
     <div className="container">
       <Header 
       onSearchChange={handleOnSearchChange} 
+      onUseLocation={handleOnUseLocation}
       cityName={cityName}
       currentTemp={currentTemp}
       weatherIcon={weatherIcon}/>
+      <GeoWeather/>
       <HourForecast />
       {forecast && <DailyForecast data={forecast}/>}
       {currentWeather && <CurrentWeather data={currentWeather}/>}
@@ -84,7 +144,6 @@ function App() {
       lat = {currentWeather.coord.lat}
       lon = {currentWeather.coord.lon}
       apiKey = {WEATHER_API_KEY}/>}
-      <GeoWeather/>
     </div>
   );
 }

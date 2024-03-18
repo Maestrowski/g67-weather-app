@@ -9,6 +9,7 @@ import { WEATHER_API_URL, R_GEO_API_URL, WEATHER_API_KEY } from "./components/ap
 // }
 
 class GeoWeather extends React.Component {
+  //STATE VARIABLES FOR GEOWEATHER COMPONENT
   state = {
     lat: null,
     lon: null,
@@ -18,21 +19,24 @@ class GeoWeather extends React.Component {
     weatherData: null,
 
     forecastData: null,
-    errorMessage: undefined
+    errorMessage: null
   };
 
+  // Requesting location from geolocation API
   getPosition = () => {
     return new Promise(function(succ, err) {
       navigator.geolocation.getCurrentPosition(succ, err);
     });
   }
 
+  // Take lat and lon from geolocation API to get Weather and Forecast from OpenWeather API
   getWeatherForecastFromAPI = async (lat,lon) => {
     const weatherAPIcall = await fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
     const weatherData = await weatherAPIcall.json();
 
+    // Store values and data from API in state variables
     this.setState({
       lat: lat,
       lon: lon,
@@ -44,6 +48,7 @@ class GeoWeather extends React.Component {
     console.log("Weather data: ", weatherData);
   }
 
+  // Take lat and lon from geolocation API to get Forecast from OpenWeather API (same as above function)
   getForecastFromAPI = async (lat,lon) => {
     const forecastAPIcall = await fetch(
       `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
@@ -55,6 +60,7 @@ class GeoWeather extends React.Component {
     console.log("Forecast data: ", forecastData);
   }
 
+  // Take lat and lon from geolocation API to get Area from OpenWeather Reverse Geocoding API
   getAreaFromAPI = async (lat,lon) => {
     const rGeocodingAPIcall = await fetch(
       `${R_GEO_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${WEATHER_API_KEY}`
@@ -64,25 +70,32 @@ class GeoWeather extends React.Component {
     // console.log("Area: ", geoData.name);
   }
 
+  // Only call when this React Component is properly mounted (initialised and inserted into the document)
   componentDidMount() {
+    // Do position API call
     this.getPosition()
     .then((position) => {
+      // Immediately get weather and forecast data
       this.getWeatherForecastFromAPI(position.coords.latitude,position.coords.longitude);
       this.getForecastFromAPI(position.coords.latitude,position.coords.longitude);
-    }).catch((err) => console.log(err.message));
+    }).catch((err) => this.setState({errorMessage: "Failed to access location data"}));
 
+    // Start a timer to only do the API call ever 60000ms (10 minutes)
     this.weatherTimer = setInterval(
-      () => this.getWeatherForecastFromAPI(this.state.lat,this.state.lon),60000);
+      () => this.getWeatherForecastFromAPI(this.state.lat,this.state.lon),600000);
     this.forecastTimer = setInterval(
-      () => this.getForecastFromAPI(this.state.lat,this.state.lon),60000);
+      () => this.getForecastFromAPI(this.state.lat,this.state.lon),600000);
   }
 
+  // End timers when the component is removed
   componentWillUnmount() {
     clearInterval(this.weatherTimer);
     clearInterval(this.forecastTimer);
   }
-
+  
+  // Run every frame
   render() {
+    // Used to update HTML elements in the rest of App
     function updateAllElementsOfClass(className, str) {
       const elements = document.getElementsByClassName(className);
   
@@ -104,11 +117,19 @@ class GeoWeather extends React.Component {
 
     const iconPath = "icons/";
 
-    const { lat, lon, area, weatherData, forecastData } = this.state;
+    // get data from state variables
+    const { lat, lon, area, weatherData, forecastData, errorMessage } = this.state;
+
+
+    // only try to access data when it is not null (hasn't arrived from API)
     if (area && weatherData && forecastData) {
 
       const dayTemp = Math.round(weatherData.main.temp);
       const icon = iconPath +weatherData.weather[0].icon+ ".png";
+
+      document.getElementById("geoLat").innerHTML = lat;
+      document.getElementById("geoLon").innerHTML = lon;
+
     
       const forecastTempElement = "forecast-temp";
       for (var i = 0; i < 8; i++) {
@@ -116,19 +137,21 @@ class GeoWeather extends React.Component {
         // console.log(Math.round(forecastData.list[i].main.temp));
       }
 
-      return (
-        <div className="weather-box">
-          <div className="weather-item">{area}</div>      
-          <div className="weather-item">{dayTemp} &deg;C</div>    
-          <div>
-            <img className="weather-icon" src={iconPath+icon} alt="weather icon"/>
-          </div>    
-        </div>
-      );      
+      // test data output
+      // return (
+      //   <div className="weather-box">
+      //     <div className="weather-item">{area}</div>      
+      //     <div className="weather-item">{dayTemp} &deg;C</div>    
+      //     <div>
+      //       <img className="weather-icon" src={iconPath+icon} alt="weather icon"/>
+      //     </div>    
+      //   </div>
+      // );      
     }
     else {
+      // placeholder if data hasn't been received yet
       return (
-        <div>Loading...</div>
+        <div>{errorMessage == null ? "Loading..." : errorMessage}</div>
       )
     }    
   }
