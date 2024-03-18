@@ -2,7 +2,7 @@ import React from 'react';
 import "./HourForecast.css";
 
 const HourForecast = () => {
-  const hourNow = new Date().getHours();
+  const hourNow = new Date().getHours(); // FIX THIS TO WORK WITH LOCATIONS FROM THE SEARCH BAR
 
   return (
     <div className="temp-of-day-section">
