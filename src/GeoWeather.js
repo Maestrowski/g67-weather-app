@@ -1,4 +1,5 @@
 import React from 'react';
+import './GeoWeather.css';
 import { WEATHER_API_URL, R_GEO_API_URL, WEATHER_API_KEY } from "./components/api";
 
 
@@ -19,7 +20,8 @@ class GeoWeather extends React.Component {
     weatherData: null,
 
     forecastData: null,
-    errorMessage: null
+    errorMessage: null,
+    FrostWarning: false,
   };
 
   // Requesting location from geolocation API
@@ -33,6 +35,7 @@ class GeoWeather extends React.Component {
   getWeatherForecastFromAPI = async (lat,lon) => {
     const weatherAPIcall = await fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+
     );
     const weatherData = await weatherAPIcall.json();
 
@@ -45,6 +48,8 @@ class GeoWeather extends React.Component {
       weatherData: weatherData
     })
 
+
+    this.FrostAlert();
     console.log("Weather data: ", weatherData);
   }
 
@@ -70,6 +75,18 @@ class GeoWeather extends React.Component {
     // console.log("Area: ", geoData.name);
   }
 
+  FrostAlert() {
+    const {forecastData} = this.state;
+    if (!(forecastData)) return;
+
+    const Frost = forecastData.list.some(forecast => {
+      const Temp_min = forecast.main.temp_min;
+      return Temp_min <= 0;
+    });
+
+    this.setState({FrostWarning: Frost});
+
+  }
   // Only call when this React Component is properly mounted (initialised and inserted into the document)
   componentDidMount() {
     // Do position API call
@@ -118,9 +135,16 @@ class GeoWeather extends React.Component {
     const iconPath = "icons/";
 
     // get data from state variables
-    const { lat, lon, area, weatherData, forecastData, errorMessage } = this.state;
+    const { lat, lon, area, weatherData, forecastData, errorMessage, FrostWarning } = this.state;
 
-
+    let frost = null;
+    if (FrostWarning) {
+      frost = (
+        <div className='frost-warning'>
+          <p>Frost Warning: Temperature expected to reach freezing point, take precautions to protect crops</p>
+        </div>
+      );
+    }
     // only try to access data when it is not null (hasn't arrived from API)
     if (area && weatherData && forecastData) {
 
@@ -138,21 +162,25 @@ class GeoWeather extends React.Component {
       }
 
       // test data output
-      // return (
-      //   <div className="weather-box">
-      //     <div className="weather-item">{area}</div>      
-      //     <div className="weather-item">{dayTemp} &deg;C</div>    
-      //     <div>
-      //       <img className="weather-icon" src={iconPath+icon} alt="weather icon"/>
-      //     </div>    
-      //   </div>
-      // );      
+      return (
+        
+        <div className="weather-box">
+          {frost}
+          <div className="weather-item">{area}</div>      
+          <div className="weather-item">{dayTemp} &deg;C</div>    
+          <div>
+            <img className="weather-icon" src={iconPath+icon} alt="weather icon"/>
+          </div>    
+        </div>
+      );      
     }
     else {
       // placeholder if data hasn't been received yet
-      // return (
-      //   <div>{errorMessage == null ? "Loading..." : errorMessage}</div>
-      // )
+      return (
+        <div>
+          {frost}
+          {errorMessage == null ? "Loading..." : errorMessage}</div>
+      )
 
       return(<></>)
     } 
