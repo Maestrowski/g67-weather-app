@@ -12,15 +12,20 @@ const WEEK_DAYS = [
   "Sunday",
 ];
 
-{
-  /** Grab data from App.js */
-}
-const DailyForecast = ({ data }) => {
-  {
-    /** Find todays day from the system */
-  }
-  const todayIndex = new Date().getDay();
 
+{/** Grab data from App.js */}
+const DailyForecast = ({ data,timezone }) => { 
+
+  {/** Find todays day from the system */}
+
+  var todayIndex = new Date().getDay();
+  if (timezone) {
+    const now = new Date(); 
+    now.setTime(now.getTime() + (timezone*1000));
+    todayIndex = now.getDay();
+  }
+    console.log(todayIndex);
+  
   {
     /** Put the days in correct order, if its Wednesday today Wednesday will be on top */
   }
