@@ -1,3 +1,11 @@
+.weather-carousel {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+  flex-shrink: 2;
+}
+
 .temp-of-day-section {
     display: flex;
     justify-content: center;
@@ -12,8 +20,7 @@ color: #000;
 font-family: Inter;
 font-size: 1.5rem;
 font-weight: 300;
-padding-top: 1%;
-padding-left: 1%;
+padding-top: 1%;  
 }
 
 .weather-details-time {
@@ -21,14 +28,12 @@ display: flex;
 justify-content: space-evenly;
 }
 
-.time {
-width: 2.034rem;
-height: 1.6875rem;
-padding: 1%;
+.time, .temp {
+width: 100%;
 color: #000;
 text-align: center;
 font-family: Inter;
-font-size: 1.5rem;
+font-size: 2.5vmin;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -39,11 +44,30 @@ line-height: normal;
   justify-content: space-evenly;
 }
 
-.icon {
-  width: 5.5%;
+.icon, .icon img {
+  max-width: 100%;
+  min-width: 0;
+
 }
 
 .weather-details-temp {
 display: flex;
 justify-content: space-evenly;
 }
+
+.time-icon-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-icon-temp div img {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.time-icon-temp p, .time-icon-temp .icon {
+  
+} 

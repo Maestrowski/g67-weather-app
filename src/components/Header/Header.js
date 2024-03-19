@@ -45,8 +45,8 @@ const Header = ({ onSearchChange, onUseLocation, cityName, currentTemp, weatherI
 
   return (
     <div className="top-black-bar">
-      <p id="geoLat"></p>
-      <p id="geoLon"></p>
+      <p hidden id="geoLat"></p>
+      <p hidden id="geoLon"></p>
       <div className="greybar-in-blackbar">
         <div className="location" />
           {/**Display city data */}
