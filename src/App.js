@@ -6,9 +6,7 @@ import HourForecast from "./components/HourForecast/HourForecast";
 import { WEATHER_API_URL, FORECAST_API_URL, WEATHER_API_KEY } from "./components/api";
 import "./App.css";
 import GeoWeather from "./GeoWeather";
-
 import WeatherGraph from "./components/WeatherGraph/WeatherGraph";
-
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
