@@ -1,6 +1,17 @@
 import "./current-weather.css";
 
+
+
 const CurrentWeather = ({ data }) => {
+
+  const CloudWarningLevel = 60;
+
+  const HighHumidity = 55;
+
+  const CloudWarning = data.clouds.all > CloudWarningLevel;
+
+  const HumidityLevel = data.main.humidity >= HighHumidity;
+
   return (
     <div className="icon-info-middle">
       <div className="inner-flex">
@@ -49,6 +60,8 @@ const CurrentWeather = ({ data }) => {
       </div>
     </div>
   );
+
+  
 };
 
 export default CurrentWeather;
