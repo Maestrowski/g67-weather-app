@@ -1,38 +1,31 @@
-.info-block-bottum {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 1%;
-  width: 96%;
-  margin: 0 auto;
-}
-
 .weekly-info-block-left {
-display: flex;
-justify-content: space-evenly;
-flex-direction: wrap;
-width: 30%;
-background: #d9d9d9;
+  width: 30%;
+  height: 100%;
+  background: #d9d9d9;
+  margin-left: 15%;
+  margin-top: 1%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .each-column {
-display: flex;
-justify-content: space-evenly;
-flex-direction: column;
-flex: 1;
-padding: 10px;
-height: 300px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px;
+  height: 300px;
 }
 
 .column {
-color: #000;
-text-align: center;
-font-family: Inter;
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-height: auto;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: auto;
 }
 
 .forecast-item {
@@ -41,14 +34,15 @@ height: auto;
 }
 
 .weather-icon {
-  width: 30px; 
-  height: 30px; 
-  margin-left: auto; 
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
 }
 
-.day, .current-day {
+.day,
+.current-day {
   font-size: 24px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .temperature {
