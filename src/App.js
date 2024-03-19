@@ -70,30 +70,22 @@ function App() {
 
           setForecast({temperatures: dailyTemperatureArray, icons: dailyData}); {/**Display data to the console */}
 
-          console.log(dailyData);
+          console.log(forecast.temperatures);
           {/** Setup the hourly forecast*/}
 
           // console.log(forecastResponse);
-          const hourlyData = []; {/** Create an array of the weather forecast for each day */}
-          const hourlyTemperatures = {};
-          forecastResponse.list.forEach((item) => {
-          const hour = new Date(item.dt).getHours();  {/** Get the current hour of the given timestamp */}
-          const temperature = Math.round(item.main.temp);
-          const icon = `icons/${item.weather[0].icon}.png`
-          if (!hourlyTemperatures[hour]) {
-            hourlyTemperatures[hour] = []; {/** Show nothing if there is no city selected */}
-          }
-          if (!hourlyData[hour]) {
-            hourlyData[hour] = []; {/** Show nothing if there is no city selected */}
-          }
-          hourlyTemperatures[hour].push(temperature);
-          hourlyData[hour] = {temperature, icon};
-          // console.log(hourlyData);
-        });
+          console.log(forecastResponse);
+        const hourlyData = []; {/** Create an array of the weather forecast for each day */}
+        const forecastList = forecastResponse.list;
+        for (var i = 0; i < 8; i++) {
+          hourlyData.push([forecastList[i].main.temp,`icons/${forecastList[i].weather[0].icon}.png`]);
+        }
+          
 
-        setHourly({temperatures: hourlyTemperatures, icons: hourlyData}); {/**Display data to the console */}
-        console.log(hourlyTemperatures);
+        setHourly(hourlyData); {/**Display data to the console */}
         console.log(hourlyData);
+        // console.log(hourlyTemperatures);
+        // console.log(hourlyData);
         })
         .catch(console.log);
       } else {
@@ -160,22 +152,15 @@ function App() {
         {/** Setup the hourly forecast*/}
 
         console.log(forecastResponse);
-          const hourlyData = []; {/** Create an array of the weather forecast for each day */}
-          const hourlyTemperatures = {};
-          forecastResponse.list.forEach((item) => {
-          const hour = new Date(item.dt).getHours();  {/** Get the current hour of the given timestamp */}
-          const temperature = Math.round(item.main.temp);
-          const icon = `icons/${item.weather[0].icon}.png`
-          if (!hourlyTemperatures[hour]) {
-            hourlyTemperatures[hour] = []; {/** Show nothing if there is no city selected */}
-          }
-          hourlyTemperatures[hour].push(temperature);
-          hourlyData[hour] = {temperature, icon};
-        });
+        const hourlyData = []; {/** Create an array of the weather forecast for each day */}
+        const forecastList = forecastResponse.list;
+        for (const i = 0; i < 8; i++) {
+          hourlyData.push([forecastList[i].main.temp,`icons/${forecastList[i].weather.icon}.png`]);
+        }
+          
 
-        setHourly({temperatures: hourlyTemperatures, icons: hourlyData}); {/**Display data to the console */}
-        console.log(hourlyTemperatures);
-        console.log(hourlyData);
+        setHourly(hourlyData); {/**Display data to the console */}
+        console.log(hourly);
       })
       .catch(console.log);
   };
