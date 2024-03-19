@@ -166,11 +166,8 @@ class GeoWeather extends React.Component {
         
         <div className="weather-box">
           {frost}
-          <div className="weather-item">{area}</div>      
-          <div className="weather-item">{dayTemp} &deg;C</div>    
-          <div>
-            <img className="weather-icon" src={iconPath+icon} alt="weather icon"/>
-          </div>    
+          <div className="weather-item"></div>      
+          <div className="weather-item"></div>    
         </div>
       );      
     }
