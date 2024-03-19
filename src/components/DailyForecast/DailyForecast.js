@@ -31,39 +31,41 @@ const DailyForecast = ({ data, timezone }) => {
 
   return (
     <div className="weekly-info-block-left">
-      <div className="each-column">
-        {/* Get the weather forecast data */}
-        {forecastDays.map((day, index) => {
-          const icon =
-            data && data.icons && data.icons[index] && data.icons[index].icon
-              ? data.icons[index].icon
-              : null;
-          const temperature =
-            data && data.temperatures
-              ? data.temperatures[index % data.temperatures.length]
-              : null;
+      <div className="inner-flex">
+        <div className="each-column">
+          {/* Get the weather forecast data */}
+          {forecastDays.map((day, index) => {
+            const icon =
+              data && data.icons && data.icons[index] && data.icons[index].icon
+                ? data.icons[index].icon
+                : null;
+            const temperature =
+              data && data.temperatures
+                ? data.temperatures[index % data.temperatures.length]
+                : null;
 
-            console.log(icon)
+              console.log(icon)
 
-          // Display weather forecast data
-          return (
-            <div className="column" key={day}>
-              <div className="forecast-item">
-                <div className="current-day">{day}</div> {/* Display the day */}
-                <div className="temp">
-                  {temperature !== null ? `${temperature}°C` : "-"}
-                </div> {/* Display the temperature */}
-                {(
-                  <img
-                    className="weather-icon"
-                    src={icon ? icon : DEFAULT_ICON} // Use default icon if icon is null
-                    alt="Weather Icon"
-                  />
-                )} {/* Display the weather icon */}
+            // Display weather forecast data
+            return (
+              <div className="column" key={day}>
+                <div className="forecast-item">
+                  <div className="day">{day}</div> {/* Display the day */}
+                  <div className="temp">
+                    {temperature !== null ? `${temperature}°C` : "-"}
+                  </div> {/* Display the temperature */}
+                  {(
+                    <img
+                      className="weather-icon"
+                      src={icon ? icon : DEFAULT_ICON} // Use default icon if icon is null
+                      alt="Weather Icon"
+                    />
+                  )} {/* Display the weather icon */}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

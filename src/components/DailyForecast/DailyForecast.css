@@ -1,11 +1,22 @@
 .weekly-info-block-left {
-  width: 30%;
+  width: 100%;
   height: 100%;
-  background: #d9d9d9;
-  margin-left: 15%;
-  margin-top: 1%;
-  padding-left: 20%;
-  padding-right: 20%;
+
+  margin: auto;
+  margin-top: 1%; 
+
+  min-width: 120px;
+
+  position:relative;
+}
+
+.inner-flex {
+  display: flex;
+  width: 70%;
+  margin: auto;
+
+
+  background: #cdd5e152;
 }
 
 .each-column {
@@ -17,10 +28,14 @@
   height: 300px;
 }
 
+.day, .temp {
+   font-size: 3.5vmin !important;
+}
+
 .column {
   color: #000;
   text-align: center;
-  font-family: Inter;
+  
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
@@ -37,12 +52,6 @@
   width: 30px;
   height: 30px;
   margin-left: auto;
-}
-
-.day,
-.current-day {
-  font-size: 24px;
-  margin-right: 10px;
 }
 
 .temperature {

@@ -18,7 +18,7 @@ const HourForecast = ({ data, timezone }) => {
   return (
     <div className="temp-of-day-section">
         <div className="temp-of-day-block">
-          Temperature for the day
+          <p id="temp-of-day-title">Temperature for the day</p>
           <div className='weather-carousel'>
             <div className='time-icon-temp'>
               <div id="tod0" className="time">Now</div>
