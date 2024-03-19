@@ -1,25 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Karla:ital,wght@0,300;0,600;1,300;1,600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Spline+Sans:wght@300..700&display=swap'); 
+
+.anim-background {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50rem;
+  padding-bottom: 30rem;
+  margin-bottom: -55rem;
+
+  background: linear-gradient(-45deg, #668468b2, #cc857582, #7599cc79);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+
+  z-index: -1;
+  
+}
+
+.anim-background:before {
+  content: "";
+  position: absolute;
+
+  pointer-events: none;
+  background: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 80rem;
+
+  background: linear-gradient(180deg, rgba(0,0,0,0),rgb(255, 255, 255));
+}
+
 .top-black-bar {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 16.9375rem;
-    background: #000;
+    height: 30rem;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .location {
+    display: none;
+  }
+
+  .temp {
+    color: #000 !important;
+    font-weight: 700;
+
   }
   
   .greybar-in-blackbar {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+    height: fit-content;
+
+    padding: 10px;
     margin: auto;
-    width: 23.5rem;
-    height: 9.4375rem;
-    background: #d9d9d9;
+    width: 30rem;
+    min-height: 11rem;
+    background: #cdd5e1a5;
   }
-  
+
   .location-name {
     display: flex;
     justify-content: center;
     color: #000;
-    font-family: Inter;
     font-size: 2.5rem;
     font-weight: 300;
   }
@@ -27,13 +81,20 @@
   .under-location-name {
     float: left;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-right: 10px;
   }
   
+  #small-icons-under-name {
+    height: 50px;
+    width: fit-content;
+  }
+
   #small-icons-under-name img{
     float: right;
-    width: 50px;
-    height: 50px;
+    height: inherit;
     box-sizing: border-box;
     display: flex;
     justify-content: space-evenly;
@@ -41,16 +102,24 @@
   }
 
 #temp-under-location {
-  margin-right: 5px;
+  margin-left: 5px;
   font-weight: 600px;
-  font-size: 24px;
-  font-family: 'Inter';
+  font-size: 30px !important;
   word-wrap: break-word;
+
+  height: 100%;
 }
 
 .use-location-button {
   width: 100%;
   margin-top: 10px;
-  
-  align-content: flex-end;
+
+  height: 6rem;
+
+  font-size: 2rem;
+  background-color: rgb(137, 179, 203);
+
+  kerning: 10px;
+
+  font-family: "Spline Sans", Arial, Helvetica, sans-serif;
 }

@@ -44,28 +44,30 @@ const Header = ({ onSearchChange, onUseLocation, cityName, currentTemp, weatherI
   };
 
   return (
-    <div className="top-black-bar">
-      <p hidden id="geoLat"></p>
-      <p hidden id="geoLon"></p>
-      <div className="greybar-in-blackbar">
-        <div className="location" />
-          {/**Display city data */}
-          <AsyncPaginate
-            placeholder="Search for place"
-            debounceTimeout={600}
-            value={search}
-            onChange={handleOnChange}
-            loadOptions={loadOptions}
-          />
-        <div/>
-        {cityName && <div className="location-name">{cityName}</div>} {/**Display city name in the header*/}
-        <div className="under-location-name">
-          {currentTemp && <div id="temp-under-location" className="temp">{Math.round(currentTemp)}°C</div>} {/**Display the current temperature in the header*/}
-          {weatherIcon && <div id="small-icons-under-name" className="weather-icon"> {/**Display the appropriate weather icon in the header */}
-            <img src={weatherIcon} alt="Weather Icon" />
-          </div>}
+    <div className="anim-background">
+      <div className="top-black-bar">
+        <p hidden id="geoLat"></p>
+        <p hidden id="geoLon"></p>
+        <div className="greybar-in-blackbar">
+            <div className="location" />
+              {/**Display city data */}
+              <AsyncPaginate
+                placeholder="Search for place"
+                debounceTimeout={600}
+                value={search}
+                onChange={handleOnChange}
+                loadOptions={loadOptions}
+              />
+          <div/>
+          {cityName && <div className="location-name">{cityName}</div>} {/**Display city name in the header*/}
+          <div className="under-location-name">
+            {currentTemp && <div id="temp-under-location" className="temp">{Math.round(currentTemp)}°C</div>} {/**Display the current temperature in the header*/}
+            {weatherIcon && <div id="small-icons-under-name" className="weather-icon"> {/**Display the appropriate weather icon in the header */}
+              <img src={weatherIcon} alt="Weather Icon" />
+            </div>}
+          </div>
+          <button className="use-location-button" onClick={handleUseLocation}>Use my location</button> 
         </div>
-        <button className="use-location-button" onClick={handleUseLocation}>Use Location</button> 
       </div>
     </div>
   );

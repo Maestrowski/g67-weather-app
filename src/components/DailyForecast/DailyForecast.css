@@ -1,11 +1,26 @@
 .weekly-info-block-left {
-  width: 30%;
-  height: 100%;
-  background: #d9d9d9;
-  margin-left: 15%;
-  margin-top: 1%;
-  padding-left: 20%;
-  padding-right: 20%;
+  width: 100%;
+  height: fit-content;
+
+  margin: auto;
+  margin-top: 1%; 
+
+  min-width: 120px;
+
+  position:relative;
+}
+
+.inner-flex {
+  display: flex;
+  width: 70%;
+  margin: auto;
+
+  justify-content: center;
+
+  padding: 100px;
+  padding-top: 100px;
+
+  background: #cdd5e152;
 }
 
 .each-column {
@@ -17,10 +32,14 @@
   height: 300px;
 }
 
+.day, .temp {
+   font-size: 3.5vmin !important;
+}
+
 .column {
   color: #000;
   text-align: center;
-  font-family: Inter;
+  
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
@@ -34,15 +53,9 @@
 }
 
 .weather-icon {
-  width: 30px;
-  height: 30px;
+  width: 70px;
+  height: 70px;
   margin-left: auto;
-}
-
-.day,
-.current-day {
-  font-size: 24px;
-  margin-right: 10px;
 }
 
 .temperature {
