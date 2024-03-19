@@ -8,6 +8,8 @@
   margin-bottom: 5rem;
 
   justify-content: center;
+
+  position:relative;
 }
 
 .weather-graph-img-box {

@@ -6,7 +6,7 @@
   width: 100%;
   height: 50rem;
   padding-bottom: 30rem;
-  margin-bottom: -50rem;
+  margin-bottom: -55rem;
 
   background: linear-gradient(-45deg, #668468b2, #cc857582, #7599cc79);
   background-size: 400% 400%;
@@ -63,13 +63,13 @@
 
     height: fit-content;
 
-    padding-top: 0;
+    padding: 10px;
     margin: auto;
-    width: 23.5rem;
+    width: 30rem;
     min-height: 11rem;
     background: #c6d2e3;
   }
-  
+
   .location-name {
     display: flex;
     justify-content: center;
@@ -113,6 +113,13 @@
 .use-location-button {
   width: 100%;
   margin-top: 10px;
-  
-  align-content: flex-end;
+
+  height: 6rem;
+
+  font-size: 2rem;
+  background-color: rgb(137, 179, 203);
+
+  kerning: 10px;
+
+  font-family: "Spline Sans", Arial, Helvetica, sans-serif;
 }

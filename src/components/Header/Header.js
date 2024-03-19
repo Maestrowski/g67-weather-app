@@ -66,7 +66,7 @@ const Header = ({ onSearchChange, onUseLocation, cityName, currentTemp, weatherI
               <img src={weatherIcon} alt="Weather Icon" />
             </div>}
           </div>
-          <button className="use-location-button" onClick={handleUseLocation}>Use Location</button> 
+          <button className="use-location-button" onClick={handleUseLocation}>Use my location</button> 
         </div>
       </div>
     </div>
