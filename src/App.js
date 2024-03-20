@@ -52,9 +52,7 @@ function App() {
           const dailyTemperatures = {};
           forecastResponse.list.forEach((item) => {
             const date = new Date(item.dt * 1000);
-            console.log(date);
             const day = date.getDay();  {/** Get the current day from the system */}
-            console.log(day);
 
             const temperature = Math.round(item.main.temp);
             const icon = `icons/${item.weather[0].icon}.png`
@@ -64,9 +62,6 @@ function App() {
             dailyTemperatures[day].push(temperature);
             dailyData[day] = {temperature, icon};
           });
-
-          console.log(dailyTemperatures);
-          console.log(dailyData);
 
           const dailyTemperatureArray = Object.values(dailyTemperatures).map(dayTemperatures => {
             const sum = dayTemperatures.reduce((acc, temp) => acc + temp, 0);

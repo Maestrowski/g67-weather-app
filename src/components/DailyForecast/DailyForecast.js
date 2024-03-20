@@ -2,14 +2,13 @@ import "./DailyForecast.css";
 import "../Header/current-weather/current-weather.css";
 
 const WEEK_DAYS = [
-  ,
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday",
-  "Sunday",
+  "Saturday"
 ];
 
 // Define a default weather icon URL
@@ -31,7 +30,7 @@ const DailyForecast = ({ data, timezone }) => {
   );
 
   const dayIndexFromFlatIndex = (todayIndex, flatIndex) => {
-    return (todayIndex + flatIndex > 6? (todayIndex + flatIndex)-7 : todayIndex + flatIndex);
+    return ((todayIndex)-1 + flatIndex > 6? ((todayIndex)-1 + flatIndex)-7 : (todayIndex)-1 + flatIndex);
   } 
 
   console.log(forecastDays);
