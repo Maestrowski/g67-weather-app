@@ -7,6 +7,7 @@ import { WEATHER_API_URL, FORECAST_API_URL, WEATHER_API_KEY } from "./components
 import "./App.css";
 import GeoWeather from "./GeoWeather";
 import WeatherGraph from "./components/WeatherGraph/WeatherGraph";
+import SoilGraph from "./components/WeatherGraph/SoilGraph";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -179,6 +180,10 @@ function App() {
       {forecast && <DailyForecast data={forecast} timezone={timezone}/>}
       {currentWeather && <CurrentWeather data={currentWeather}/>}
       {currentWeather && <WeatherGraph 
+      lat = {currentWeather.coord.lat}
+      lon = {currentWeather.coord.lon}
+      apiKey = {WEATHER_API_KEY}/>}
+      {currentWeather && <SoilGraph 
       lat = {currentWeather.coord.lat}
       lon = {currentWeather.coord.lon}
       apiKey = {WEATHER_API_KEY}/>}
