@@ -42,7 +42,7 @@ const WeatherGraph = ({ lat, lon, apiKey }) => {
         <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
       </div>
       <div className="temperature-legend">
-        <h3>Temperature Legend</h3>
+        <h3>Temperature Scale</h3>
         <div className="legend-colors">
           {temperatureLegend.map((item, index) => (
             <div
