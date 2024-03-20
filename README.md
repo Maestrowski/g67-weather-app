@@ -10,6 +10,7 @@
    3. npm i react-select-async-paginate --force
    4. npm i axios
 
+
 5. After having done this, while still on the 'src' folder on the Visual Studio Code terminal, type 'npm start' to start up the weather application
 
 After following these steps, the weather app will start up on a browser
