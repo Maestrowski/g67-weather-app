@@ -52,9 +52,11 @@ function App() {
           const dailyTemperatures = {};
           forecastResponse.list.forEach((item) => {
             const date = new Date(item.dt * 1000);
+            console.log(date);
             const day = date.getDay();  {/** Get the current day from the system */}
-            const temperature = Math.round(item.main.temp);
             console.log(day);
+
+            const temperature = Math.round(item.main.temp);
             const icon = `icons/${item.weather[0].icon}.png`
             if (!dailyTemperatures[day]) {
               dailyTemperatures[day] = []; {/** Show nothing if there is no city selected */}
@@ -63,31 +65,32 @@ function App() {
             dailyData[day] = {temperature, icon};
           });
 
+          console.log(dailyTemperatures);
+          console.log(dailyData);
+
           const dailyTemperatureArray = Object.values(dailyTemperatures).map(dayTemperatures => {
             const sum = dayTemperatures.reduce((acc, temp) => acc + temp, 0);
             return Math.round(sum / dayTemperatures.length); {/** Calculate the average temperature for that day */}
           });
 
           setForecast({temperatures: dailyTemperatureArray, icons: dailyData}); {/**Display data to the console */}
-
-          console.log(forecast.temperatures);
           {/** Setup the hourly forecast*/}
 
           // console.log(forecastResponse);
           console.log(forecastResponse);
-        const hourlyData = []; {/** Create an array of the weather forecast for each day */}
-        const forecastList = forecastResponse.list;
-        for (var i = 0; i < 8; i++) {
-          hourlyData.push([forecastList[i].main.temp,`icons/${forecastList[i].weather[0].icon}.png`]);
-        }
+          const hourlyData = []; {/** Create an array of the weather forecast for each day */}
+          const forecastList = forecastResponse.list;
+          for (var i = 0; i < 8; i++) {
+            hourlyData.push([forecastList[i].main.temp,`icons/${forecastList[i].weather[0].icon}.png`]);
+          }
           
 
-        setHourly(hourlyData); {/**Display data to the console */}
-        console.log(hourlyData);
-        // console.log(hourlyTemperatures);
-        // console.log(hourlyData);
-        })
-        .catch(console.log);
+          setHourly(hourlyData); {/**Display data to the console */}
+          console.log(hourlyData);
+          // console.log(hourlyTemperatures);
+          // console.log(hourlyData);
+          })
+          .catch(console.log);
       } else {
         setCityName("Could not access location data");
 
