@@ -162,7 +162,7 @@ function App() {
           const day = date.getDay();  {/** Get the current day from the system */}
 
           const temperature = Math.round(item.main.temp);
-          const icon = `icons/${item.weather[0].icon}.png`
+          const icon = `icons/${(item.weather[0].icon).replace("n", 'd')}.png`
           if (!dailyTemperatures[day]) {
             dailyTemperatures[day] = []; {/** Show nothing if there is no city selected */}
           }
