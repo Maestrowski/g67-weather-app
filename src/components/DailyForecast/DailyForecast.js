@@ -44,24 +44,24 @@ const DailyForecast = ({ data, timezone }) => {
                 ? data.temperatures[index % data.temperatures.length]
                 : null;
 
-              console.log(icon)
+            console.log(icon);
 
             // Display weather forecast data
             return (
               <div className="column" key={day}>
-                <div className="forecast-item">
-                  <div className="day">{day}</div> {/* Display the day */}
-                  <div className="temp">
-                    {temperature !== null ? `${temperature}°C` : "-"}
-                  </div> {/* Display the temperature */}
-                  {(
-                    <img
-                      className="weather-icon"
-                      src={icon ? icon : DEFAULT_ICON} // Use default icon if icon is null
-                      alt="Weather Icon"
-                    />
-                  )} {/* Display the weather icon */}
-                </div>
+                <div className="day">{day}</div> {/* Display the day */}
+                <div className="temp">
+                  {temperature !== null ? `${temperature}°C` : "-"}
+                </div>{" "}
+                {/* Display the temperature */}
+                {
+                  <img
+                    className="weather-icon"
+                    src={icon ? icon : DEFAULT_ICON} // Use default icon if icon is null
+                    alt="Weather Icon"
+                  />
+                }{" "}
+                {/* Display the weather icon */}
               </div>
             );
           })}
@@ -72,4 +72,3 @@ const DailyForecast = ({ data, timezone }) => {
 };
 
 export default DailyForecast;
-

@@ -1,12 +1,7 @@
 .weekly-info-block-left {
   width: 100%;
   height: 100%;
-
-
   margin-top: 1%;
-
-  min-width: 120px;
-
   position: relative;
 }
 
@@ -14,9 +9,7 @@
   display: flex;
   width: 70%;
   margin: auto;
-
   justify-content: center;
-
   background: #cdd5e152;
 }
 
@@ -32,12 +25,16 @@
 .day,
 .temp {
   font-size: 3.5vmin !important;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 25px;
 }
 
 .column {
+  display: flex;
   color: #000;
   text-align: center;
-
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
@@ -45,10 +42,6 @@
   height: auto;
 }
 
-.forecast-item {
-  display: flex;
-  align-items: center;
-}
 
 .weather-icon {
   width: 70px;
