@@ -210,7 +210,7 @@ function App() {
 
       {frost && <div className="frost-wrapper">
         <span className='frost-warning'>
-            Frost Warning: Temperature expected to reach freezing point, take precautions to protect crops
+           <b> Frost Warning:</b> Temperature expected to reach freezing point, take precautions to protect crops
         </span>
       </div>}
 
