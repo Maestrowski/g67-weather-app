@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { WEATHER_API_URL, WEATHER_API_KEY } from "./components/api";
+import "./App.css";
+
 import Header from "./components/Header/Header";
 import CurrentWeather from "./components/Header/current-weather/current-weather";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
 import HourForecast from "./components/HourForecast/HourForecast";
-import { WEATHER_API_URL, FORECAST_API_URL, WEATHER_API_KEY } from "./components/api";
-import "./App.css";
+
 import GeoWeather from "./GeoWeather";
 import WeatherGraph from "./components/WeatherGraph/WeatherGraph";
 import SoilGraph from "./components/WeatherGraph/SoilGraph";
@@ -18,8 +20,12 @@ function App() {
   const [weatherIcon, setWeatherIcon] = useState("");
   const [timezone,setTimezone] = useState(null);
 
-  const handleOnUseLocation = () => {
+  const [frost,setFrost] = useState(false);
+
+  const handleOnUseLocation = () => { // Handle getting data from API when using geolocation
     var [lat, lon] = [null,null];
+
+    // If data is received and put onto DOM
     if (document.getElementById("geoLat").innerHTML != "" && document.getElementById("geoLon").innerHTML != "") {
       [lat, lon] = [document.getElementById("geoLat").innerHTML,document.getElementById("geoLon").innerHTML];
 
@@ -39,6 +45,10 @@ function App() {
 
           {/**Grab the required data for the header and current weather section */}
 
+          console.log(forecastResponse);
+
+          
+
           setCurrentWeather({ city: weatherResponse.name, ...weatherResponse }); {/**Get City data */}
           setCityName(weatherResponse.name);
           setCurrentTemp(weatherResponse.main.temp);  {/**Get temperature which will be displayed in the header */}
@@ -46,6 +56,11 @@ function App() {
           setForecast({ city: weatherResponse.name, ...forecastResponse }); 
           setTimezone(weatherResponse.timezone);
           setHourly({city: weatherResponse.name, ...forecastResponse});
+
+          setFrost(forecastResponse.list.some(forecast => {
+            const Temp_min = forecast.main.temp_min;
+            return Temp_min <= 0;
+          }));
 
           {/** Setup the weather forecast for 7 days */}
 
@@ -73,8 +88,9 @@ function App() {
           
           {/** Setup the hourly forecast*/}
           console.log(forecastResponse);
-          const hourlyData = []; {/** Create an array of the weather forecast for each day */}
+          const hourlyData = []; {/** Create an array of the weather forecast for each hour */}
           const hourlyTemperatures = {};
+
           const forecastList = forecastResponse.list;
           for (var i = 0; i < 8; i++) {
             if (!hourlyData[i]) {
@@ -87,6 +103,7 @@ function App() {
           })
           .catch(console.log);
       } else {
+        // Display message if location is not enabled
         setCityName("Could not access location data");
 
         setCurrentWeather(null);
@@ -97,7 +114,7 @@ function App() {
       }
   };
 
-  {/** fetch API Data from openWeatherAPI */}
+  {/** fetch API Data from openWeatherAPI when using the searchbar */}
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
@@ -116,6 +133,13 @@ function App() {
 
         {/**Grab the required data for the header and current weather section */}
 
+        console.log("Forecast Data " + forecastResponse);
+
+        setFrost(forecastResponse.list.some(forecast => {
+          const Temp_min = forecast.main.temp_min;
+          return Temp_min <= 0;
+        }));
+
         setCurrentWeather({ city: weatherResponse.name, ...weatherResponse }); {/**Get City data */}
         setCityName(weatherResponse.name);
         setCurrentTemp(weatherResponse.main.temp);  {/**Get temperature which will be displayed in the header */}
@@ -123,6 +147,11 @@ function App() {
         setForecast({ city: weatherResponse.name, ...forecastResponse }); 
         setTimezone(weatherResponse.timezone);
         setHourly({city: weatherResponse.name, ...forecastResponse});
+
+        setFrost(forecastResponse.list.some(forecast => {
+          const Temp_min = forecast.main.temp_min;
+          return Temp_min <= 0;
+        }));
 
         {/** Setup the weather forecast for 7 days */}
 
@@ -175,9 +204,15 @@ function App() {
       cityName={cityName}
       currentTemp={currentTemp}
       weatherIcon={weatherIcon}/>
+
       <GeoWeather/>
+
+      {frost && <span className='frost-warning'>
+          Frost Warning: Temperature expected to reach freezing point, take precautions to protect crops
+        </span>}
       {hourly && <HourForecast data={hourly} timezone={timezone}/>}
       {forecast && <DailyForecast data={forecast} timezone={timezone}/>}
+      
       {currentWeather && <CurrentWeather data={currentWeather}/>}
       {currentWeather && <WeatherGraph 
       lat = {currentWeather.coord.lat}
