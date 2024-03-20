@@ -25,11 +25,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .current-icon {
-  width: 100px;
   height: auto;
   flex-shrink: 0;
 }

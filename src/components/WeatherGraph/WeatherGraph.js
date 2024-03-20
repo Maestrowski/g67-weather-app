@@ -2,7 +2,7 @@ import React from "react";
 import "./WeatherGraph.css";
 
 const WeatherGraph = ({ lat, lon, apiKey }) => {
-  const op = "TA2"; // Temperature at 2 meters
+  const op = "TA2";
   const zoom = 5; // Adjust the zoom level as needed
 
   // Calculate tile coordinates based on latitude and longitude
@@ -18,29 +18,13 @@ const WeatherGraph = ({ lat, lon, apiKey }) => {
   );
 
   // Construct the tile URL
-  const tileUrl = `http://maps.openweathermap.org/maps/2.0/weather/${op}/${zoom}/${tileX}/${tileY}?appid=${apiKey}&fill_bound=true&opacity=0.6&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014`;
-  console.log(tileUrl);
-
-
-  const temperatureScale = [
-    { temperature: -65, color: "#821692" },
-    { temperature: -55, color: "#821692" },
-    { temperature: -45, color: "#821692" },
-    { temperature: -40, color: "#821692" },
-    { temperature: -30, color: "#8257db" },
-    { temperature: -20, color: "#208cec" },
-    { temperature: -10, color: "#20c4e8" },
-    { temperature: 0, color: "#23dddd" },
-    { temperature: 10, color: "#c2ff28" },
-    { temperature: 20, color: "#fff028" },
-    { temperature: 25, color: "#ffc228" },
-    { temperature: 30, color: "#fc8014" },
-  ];
+  const tileUrl = `https://tile.openweathermap.org/map/${op}/${zoom}/${tileX}/${tileY}.png?appid=${apiKey}`;
+  console.log(tileUrl)
 
   return (
     <div className="weather-graph-container">
       <div className="weather-graph-img-box">
-        <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
+          <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
       </div>
       <div className="temperature-legend">
         <h3>Temperature Scale</h3>
@@ -61,3 +45,4 @@ const WeatherGraph = ({ lat, lon, apiKey }) => {
 };
 
 export default WeatherGraph;
+

@@ -5,11 +5,11 @@ import "./current-weather.css";
 const CurrentWeather = ({ data }) => {
 
 
-  const HighHumidity = 55;
+  const LowHumidity = 55;
 
   const HighWind = 10;
 
-  const HumidityLevel = data.main.humidity >= HighHumidity; // Check if humidity is greater than or equal to 55%
+  const HumidityLevel = data.main.humidity <= LowHumidity; // Check if humidity is less than or equal to 55%
 
   const WindLevel = data.wind.speed > HighWind; // Check if wind is greater than 20 m/s
 

@@ -2,14 +2,13 @@ import "./DailyForecast.css";
 import "../Header/current-weather/current-weather.css";
 
 const WEEK_DAYS = [
-  ,
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday",
-  "Sunday",
+  "Saturday"
 ];
 
 // Define a default weather icon URL
@@ -17,6 +16,7 @@ const DEFAULT_ICON = `icons/unknown.png`; // Adjust the path as per your project
 
 const DailyForecast = ({ data, timezone }) => {
   // Find today's day from the system
+  console.log(data);
   var todayIndex = new Date().getDay();
   if (timezone) {
     const now = new Date();
@@ -25,8 +25,8 @@ const DailyForecast = ({ data, timezone }) => {
   }
 
   // Put the days in correct order, if it's Wednesday today Wednesday will be on top
-  const forecastDays = WEEK_DAYS.slice(todayIndex).concat(
-    WEEK_DAYS.slice(0, todayIndex)
+  const forecastDays = (WEEK_DAYS.slice(todayIndex).concat(
+    WEEK_DAYS.slice(0, todayIndex)).slice(0,5)
   );
 
   return (
@@ -36,15 +36,14 @@ const DailyForecast = ({ data, timezone }) => {
           {/* Get the weather forecast data */}
           {forecastDays.map((day, index) => {
             const icon =
-              data && data.icons && data.icons[index] && data.icons[index].icon
-                ? data.icons[index].icon
-                : null;
-            const temperature =
-              data && data.temperatures
-                ? data.temperatures[index % data.temperatures.length]
+              data && data.icons && data.icons[todayIndex] && data.icons[(todayIndex+index)%7].icon
+                ? data.icons[(todayIndex+index)%7].icon
                 : null;
 
-            console.log(icon);
+            const temperature =
+              data && data.temperatures
+                ? data.temperatures[(todayIndex+index-1) % data.temperatures.length]
+                : null;
 
             // Display weather forecast data
             return (
