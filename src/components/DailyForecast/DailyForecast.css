@@ -1,13 +1,13 @@
 .weekly-info-block-left {
   width: 100%;
-  height: fit-content;
+  height: 100%;
 
-  margin: auto;
-  margin-top: 1%; 
+
+  margin-top: 1%;
 
   min-width: 120px;
 
-  position:relative;
+  position: relative;
 }
 
 .inner-flex {
@@ -17,9 +17,6 @@
 
   justify-content: center;
 
-  padding: 100px;
-  padding-top: 100px;
-
   background: #cdd5e152;
 }
 
@@ -28,18 +25,19 @@
   justify-content: space-evenly;
   flex-direction: column;
   flex: 1;
-  padding: 10px;
-  height: 300px;
+  padding: 1%;
+  height: 100%;
 }
 
-.day, .temp {
-   font-size: 3.5vmin !important;
+.day,
+.temp {
+  font-size: 3.5vmin !important;
 }
 
 .column {
   color: #000;
   text-align: center;
-  
+
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
