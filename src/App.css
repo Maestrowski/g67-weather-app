@@ -9,3 +9,19 @@
 body {
     font-family: "Spline Sans", Arial, Helvetica, sans-serif;
 }
+
+.frost-warning {
+    background-color: #ffcccb; /* Light red background for visibility */
+    color: rgb(148, 4, 4); /* Darker red color for text */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a00;
+  }
+
+  .frost-wrapper {
+    display: flex;
+
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
