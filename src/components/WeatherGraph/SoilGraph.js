@@ -33,22 +33,24 @@ const SoilGraph = ({ lat, lon, apiKey }) => {
   ];
 
   return (
-    <div className="soil-graph-container">
-      <div className="soil-graph-img-box">
-        <img src={tileUrl} className="soil-graph-img" alt="Soil Temperature Map" />
-      </div>
-      <div className="temperature-scale">
-        <h3>Soil (0-10cm depth) Temperature Legend</h3>
-        <div className="scale-colors">
-          {soilTemperatureLegend.map((item, index) => (
-            <div
-              key={index}
-              className="scale-color"
-              style={{ backgroundColor: item.color }}
-            >
-              {item.temperature}°C
-            </div>
-          ))}
+    <div className="flex">
+      <div className="soil-graph-container">
+        <div className="soil-graph-img-box">
+          <img src={tileUrl} className="soil-graph-img" alt="Soil Temperature Map" />
+        </div>
+        <div className="temperature-scale">
+          <h3>Soil (0-10cm depth) Temperature Legend</h3>
+          <div className="scale-colors">
+            {soilTemperatureLegend.map((item, index) => (
+              <div
+                key={index}
+                className="scale-color"
+                style={{ backgroundColor: item.color }}
+              >
+                {item.temperature}°C
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

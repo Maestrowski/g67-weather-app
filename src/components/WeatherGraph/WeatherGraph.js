@@ -20,6 +20,8 @@ const WeatherGraph = ({ lat, lon, apiKey }) => {
   // Construct the tile URL
   const tileUrl = `http://maps.openweathermap.org/maps/2.0/weather/${op}/${zoom}/${tileX}/${tileY}?appid=${apiKey}&fill_bound=true&opacity=0.6&palette=-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014`;
 
+  console.log(tileUrl);
+
   // Define temperature legend
   const temperatureLegend = [
     { temperature: -65, color: "#821692" },
@@ -37,22 +39,24 @@ const WeatherGraph = ({ lat, lon, apiKey }) => {
   ];
 
   return (
-    <div className="weather-graph-container">
-      <div className="weather-graph-img-box">
-        <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
-      </div>
-      <div className="temperature-legend">
-        <h3>Temperature Scale</h3>
-        <div className="legend-colors">
-          {temperatureLegend.map((item, index) => (
-            <div
-              key={index}
-              className="legend-color"
-              style={{ backgroundColor: item.color }}
-            >
-              {item.temperature}°C
-            </div>
-          ))}
+    <div className="flex">
+      <div className="weather-graph-container">
+        <div className="weather-graph-img-box">
+          <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
+        </div>
+        <div className="temperature-legend">
+          <h3>Temperature Scale</h3>
+          <div className="legend-colors">
+            {temperatureLegend.map((item, index) => (
+              <div
+                key={index}
+                className="legend-color"
+                style={{ backgroundColor: item.color }}
+              >
+                {item.temperature}°C
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
