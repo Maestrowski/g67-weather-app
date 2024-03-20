@@ -29,12 +29,6 @@ const DailyForecast = ({ data, timezone }) => {
     WEEK_DAYS.slice(0, todayIndex)).slice(0,5)
   );
 
-  const dayIndexFromFlatIndex = (todayIndex, flatIndex) => {
-    return ((todayIndex)-1 + flatIndex > 6? ((todayIndex)-1 + flatIndex)-7 : (todayIndex)-1 + flatIndex);
-  } 
-
-  console.log(forecastDays);
-
   return (
     <div className="weekly-info-block-left">
       <div className="inner-flex">
@@ -46,13 +40,10 @@ const DailyForecast = ({ data, timezone }) => {
                 ? data.icons[(todayIndex+index)%7].icon
                 : null;
 
-                console.log(icon);
             const temperature =
               data && data.temperatures
                 ? data.temperatures[(todayIndex+index-1) % data.temperatures.length]
                 : null;
-
-                console.log(todayIndex+index %7);
 
             // Display weather forecast data
             return (
