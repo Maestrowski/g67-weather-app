@@ -2,13 +2,6 @@ import React from 'react';
 import './GeoWeather.css';
 import { WEATHER_API_URL, R_GEO_API_URL, WEATHER_API_KEY } from "./components/api";
 
-
-// const getPosition = () => {
-//   return new Promise(function(succ, err) {
-//     navigator.geolocation.getCurrentPosition(succ, err);
-//   });
-// }
-
 class GeoWeather extends React.Component {
   //STATE VARIABLES FOR GEOWEATHER COMPONENT
   state = {
@@ -49,8 +42,7 @@ class GeoWeather extends React.Component {
     })
 
 
-    this.FrostAlert();
-    console.log("Weather data: ", weatherData);
+    
   }
 
   // Take lat and lon from geolocation API to get Forecast from OpenWeather API (same as above function)
@@ -61,31 +53,6 @@ class GeoWeather extends React.Component {
     const forecastData = await forecastAPIcall.json();
 
     this.setState({forecastData: forecastData})
-
-    console.log("Forecast data: ", forecastData);
-  }
-
-  // Take lat and lon from geolocation API to get Area from OpenWeather Reverse Geocoding API
-  getAreaFromAPI = async (lat,lon) => {
-    const rGeocodingAPIcall = await fetch(
-      `${R_GEO_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${WEATHER_API_KEY}`
-    );
-    const geoData = await rGeocodingAPIcall[0].json();
-
-    // console.log("Area: ", geoData.name);
-  }
-
-  FrostAlert() {
-    const {forecastData} = this.state;
-    if (!(forecastData)) return;
-
-    const Frost = forecastData.list.some(forecast => {
-      const Temp_min = forecast.main.temp_min;
-      return Temp_min <= 0;
-    });
-
-    this.setState({FrostWarning: Frost});
-
   }
   // Only call when this React Component is properly mounted (initialised and inserted into the document)
   componentDidMount() {
@@ -112,28 +79,7 @@ class GeoWeather extends React.Component {
   
   // Run every frame
   render() {
-    // Used to update HTML elements in the rest of App
-    function updateAllElementsOfClass(className, str) {
-      const elements = document.getElementsByClassName(className);
-  
-      for (const element of elements) { element.innerHTML = str; }
-    };
-
-    function updateAllImagesOfClass(className, imgPath) {
-      const elements = document.getElementsByClassName(className);
-  
-      for (const element of elements) { element.src = imgPath; }
-    };
-
-    function updateAllElements(area, dayTemp, icon) {
-      console.log(document.getElementsByClassName("location-name"));
-      updateAllElementsOfClass("location-name",area);
-      updateAllElementsOfClass("temp-under-location",dayTemp+"&deg;C");
-      updateAllImagesOfClass("current-weather-icon", icon);
-    }
-
-    const iconPath = "icons/";
-
+    
     // get data from state variables
     const { lat, lon, area, weatherData, forecastData, errorMessage, FrostWarning } = this.state;
 
@@ -147,30 +93,13 @@ class GeoWeather extends React.Component {
     }
     // only try to access data when it is not null (hasn't arrived from API)
     if (area && weatherData && forecastData) {
-
-      const dayTemp = Math.round(weatherData.main.temp);
-      const icon = iconPath +weatherData.weather[0].icon+ ".png";
-
       document.getElementById("geoLat").innerHTML = lat;
       document.getElementById("geoLon").innerHTML = lon;
-
-    
-      const forecastTempElement = "forecast-temp";
-      for (var i = 0; i < 8; i++) {
-        //document.getElementById(forecastTempElement + i).innerHTML = 
-        // console.log(Math.round(forecastData.list[i].main.temp));
-      }
-
-      // test data output
+      
       return (
         
         <div className="weather-box">
           {frost}
-          {/* <div className="weather-item">{area}</div>      
-          <div className="weather-item">{dayTemp} &deg;C</div>    
-          <div>
-            <img className="weather-icon" src={iconPath+icon} alt="weather icon"/>
-          </div>     */}
         </div>
       );      
     }
@@ -182,29 +111,9 @@ class GeoWeather extends React.Component {
           {/* {errorMessage == null ? "Loading..." : errorMessage} */}
         </div>
       )
-
-      return(<></>)
     } 
   }
 }
 
 export default GeoWeather
-  //   export const 
-
-  // // export async function getPosition() {
-  // //   const positionPromise = await getCoords();
-  // //   let lat = await positionPromise.coords.latitude;
-  // //   let lon = await positionPromise.coords.longitude;
-
-  // //   //console.log([lat,lon]);
-  // //   return [lat,lon];
-  // // }
-
-  // export async function getCity() {
-  //   const [lat,lon] = await getPosition();
-
-  //   const geoCall = await fetch(`${GEO_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${WEATHER_API_KEY}`);
-  //   const json = await geoCall.json();
-  //   return json[0].name;
-  // }
 
