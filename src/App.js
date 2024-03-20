@@ -206,11 +206,14 @@ function App() {
       weatherIcon={weatherIcon}/>
 
       <GeoWeather/>
-
-      {frost && <span className='frost-warning'>
-          Frost Warning: Temperature expected to reach freezing point, take precautions to protect crops
-        </span>}
       {hourly && <HourForecast data={hourly} timezone={timezone}/>}
+      {frost && 
+      <div className="frost-wrapper">
+        <span className='frost-warning'>
+            Frost Warning: Temperature expected to reach freezing point, take precautions to protect crops
+        </span>
+      </div>
+      }
       {forecast && <DailyForecast data={forecast} timezone={timezone}/>}
       
       {currentWeather && <CurrentWeather data={currentWeather}/>}
