@@ -42,16 +42,17 @@ const DailyForecast = ({ data, timezone }) => {
           {/* Get the weather forecast data */}
           {forecastDays.map((day, index) => {
             const icon =
-              data && data.icons && data.icons[dayIndexFromFlatIndex(todayIndex,index)] && data.icons[dayIndexFromFlatIndex(todayIndex,index)].icon
-                ? data.icons[dayIndexFromFlatIndex(todayIndex,index)].icon
-                : null;
-            const temperature =
-              data && data.temperatures
-                ? data.temperatures[dayIndexFromFlatIndex(todayIndex,index) % data.temperatures.length]
+              data && data.icons && data.icons[todayIndex] && data.icons[(todayIndex+index)%7].icon
+                ? data.icons[(todayIndex+index)%7].icon
                 : null;
 
-            console.log(dayIndexFromFlatIndex(todayIndex,index));
-            console.log(icon);
+                console.log(icon);
+            const temperature =
+              data && data.temperatures
+                ? data.temperatures[(todayIndex+index-1) % data.temperatures.length]
+                : null;
+
+                console.log(todayIndex+index %7);
 
             // Display weather forecast data
             return (
