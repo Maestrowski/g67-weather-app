@@ -17,6 +17,10 @@
   column-gap: 35vmin;
   
   padding-bottom: 30px;
+
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
 }
 
 .single-block-info {
@@ -34,7 +38,6 @@
 
 .current-icon img {
   max-width: 100%;
-  min-width: 8rem;
 }
 
 .pressure-info,
