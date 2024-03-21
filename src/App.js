@@ -194,6 +194,12 @@ function App() {
         .catch(console.log);
   };
 
+  useEffect(() => {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
 
 {/** Display all the components */}
   return (
