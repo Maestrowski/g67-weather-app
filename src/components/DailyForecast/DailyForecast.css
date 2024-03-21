@@ -24,15 +24,25 @@
 
 .day,
 .temp {
+  display: flex;
+
   font-size: 3.5vmin !important;
   align-items: center;
   padding-left: 1%;
   padding-right: 1%;
-  width: 25px;
+  width: 12rem;
+
+  text-align: center;
+  justify-content: center;
+}
+
+.day {
+  justify-content: flex-end;
 }
 
 .column {
   display: flex;
+
   color: #000;
   text-align: center;
   font-size: 1.5rem;
@@ -40,6 +50,9 @@
   font-weight: 400;
   line-height: normal;
   height: auto;
+
+  justify-content: space-between;
+
 }
 
 
