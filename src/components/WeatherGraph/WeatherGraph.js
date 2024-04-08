@@ -41,6 +41,7 @@ const WeatherGraph = ({ lat, lon, apiKey }) => {
   return (
     <div className="flex">
       <div className="weather-graph-container">
+        <img className="map" src="/map.png"></img>
         <div className="weather-graph-img-box">
           <img src={tileUrl} className="weather-graph-img" alt="Weather Map" />
         </div>
